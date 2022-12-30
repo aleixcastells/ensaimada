@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="author" content="Aleix Castells" />
+
+    <!-- Page Title-->
+    <title>Receptari</title>
+
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="http://www.aleixcastells.cat/img/logo.png">
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+</head>
+
+<body>
+
+    <!-- Responsive navbar-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+
+            <!-- Navbar Title-->
+            <a class="navbar-brand" href="#">Receptes</a>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent"></div>
+        </div>
+    </nav>
+
+    <!-- Page content-->
+    <div class="container">
+        <div class="text-left mt-5">
+
+
+
+            <!--  Text  -->
+            <h1>Ensaimada: Settings</h1>
+            <br>
+
+
+            <p>Com de grossa la vols? Normal és com un vinil i grossa són uns 15 cm extra de diàmetre.</p>
+
+        </div>
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-secondary">Normal</button>
+            <button type="button" class="btn btn-secondary">Grossa</button>
+        </div>
+
+
+        <br>
+        <br>
+
+        <p>Ous: com són de grossos?</p>
+
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-secondary">Petits</button>
+            <button type="button" class="btn btn-secondary">Normals</button>
+            <button type="button" class="btn btn-secondary">Grossos</button>
+        </div>
+        <br>
+        <br>
+        <p>Quin temps fa? (Menys de 21 ºC ho consideram fred)</p>
+
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-secondary">Fred</button>
+            <button type="button" class="btn btn-secondary">Calor</button>
+        </div>
+        <br>
+        <br>
+
+        <br>
+
+
+        <h2> Que necessites?</h2>
+
+
+        <table class="table table-dark">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Ingredients</th>
+                    <th scope="col">Quantitat</th>
+                    <th scope="col">Ratio</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Sucre</td>
+                    <td>150 g</td>
+                    <td>0,5 Tassó</td>
+                </tr>
+
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Ous</td>
+                    <td>2</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Farina de força</td>
+                    <td>500 g</td>
+                    <td>2,5 Tassons</td>
+                </tr>
+                <tr>
+                    <th scope="row">4</th>
+                    <td>Aigua</td>
+                    <td>160 ml</td>
+                    <td>0,5 Tassó</td>
+                </tr>
+                <tr>
+                    <th scope="row">6</th>
+                    <td>Llevadura fresca</td>
+                    <td>25 g</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <th scope="row">7</th>
+                    <td>Oli de girasol</td>
+                    <td>Per untar ses mans</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <th scope="row">8</th>
+                    <td>Saïm</td>
+                    <td>A voler</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <th scope="row">9</th>
+                    <td>Sucre en pols</td>
+                    <td>A voler</td>
+                    <td>-</td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+
+        <h2>
+            Preparació
+        </h2>
+
+
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Temps de preparació: <strong>~ 4h</strong></li>
+            <li class="list-group-item">Temps de forn: <strong>10 - 15 min</strong></li>
+            <li class="list-group-item">Eines: Taula grossa, rodillo, bol gros, turmix, colador, forn, llauna rodona,
+                paper de forn.
+            </li>
+
+        </ul>
+        <br>
+
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+
+            <div class="carousel-inner">
+
+                <div id="image1" class="carousel-item active">
+                    <img class="d-block w-100" src="img/ensaimada.jpg" alt="First slide">
+                </div>
+
+                <div id="image2" class="carousel-item">
+                    <img class="d-block w-100" src="img/ensaimada2.jpg" alt="Second slide">
+                </div>
+
+                <div id="image3" class="carousel-item">
+                    <img class="d-block w-100" src="img/ensaimada3.jpg" alt="Third slide">
+                </div>
+
+            </div>
+
+            <a class="carousel-control-prev" onclick="prevImage()" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" onclick="nextImage()" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+
+        <br>
+
+
+        <h6><strong>PAS 1:</strong></h6>
+        <p> Descongelar el llevat fresc del tot, després desfer-lo en un bol amb els <span id="aiguaML">ML</span>
+            d'aigua tèbia que hem preparat. Afegir <span id="ousQ">N OUS</span> i sucre. Mesclar amb el túrmix fins que
+            faci espuma.
+        </p>
+
+
+
+        <br>
+        <br>
+
+
+        <h6><strong>PAS 2:</strong></h6>
+        <p> Lentament, anar afegint farina amb una mà, mentre l'altra va mesclant. Quan la pasta tingui una mica de
+            consistència, abans d'abocar tota la farina, unta't la mà amb oli de gira-sol, les vegades que faci falta,
+            perquè no s'aferri tant la pasta.
+        </p>
+
+
+        <br>
+
+
+        <h6><strong>PAS 3:</strong></h6>
+        <p>Acabar d'abocar la farina i pastar fins que tingui consistència, però sense que quedi molt ferma. Si
+            afegeixes
+            massa farina, banya't les mans amb aigua i pasta, així s'afegeix humitat a la pasta. Repeteix fins que
+            estigui
+            bé.</p>
+        <br>
+
+
+        <h6><strong>PAS 4:</strong></h6>
+        Tapa-la amb un pedaç humit i deixa-la al forn (apagat) fins que s'hagi duplicat en mida.
+
+        En cas que faci fred o la pasta no tovi, posar un tassó amb aigua bullent dins el forn, per a crear humitat i
+        temperatura.
+        <br>
+
+
+        <h6><strong>PAS 5:</strong></h6>
+        <p>Quan la pasta hagi tovat, pastar-la de nou.
+
+            Repeteix el PAS 4 i 5 unes quantes vegades, depenent del temps que tinguis. Mínim tovar 2 vegades.</p>
+
+        <br>
+
+
+        <h6><strong>PAS 6:</strong></h6>
+
+        <p> Unta tota la taula amb oli de gira-sol. Divideix la pasta en dues meitats.
+
+            Amb un rodillo, estira bé la primera meitat de la pasta fins que estigui ben fina, creant un rectangle el
+            més
+            regular possible. Després, estira manualment la tela de la pasta perquè sigui tan fina com sigui possible.
+            Si la
+            pasta ha quedat perfecta, hauries d'aconseguir que es transparenti una mica. Si es forada, no passa res. En
+            cas
+            que es foradi molt, no estirar més.
+
+            La pasta ideal és: Rectangular, molt fina (1-2 mm), sense forats, una mica transparent i flexible.
+            Normalment,
+            no és possible que sigui perfecta, però acostar-s'hi el màxim és clau perquè surti bona.</p>
+
+        <br>
+
+
+        <h6><strong>PAS 7:</strong></h6>
+        <p>
+            Untar la pasta estirada amb saïm. A gust de cadascú, no ha d'estar totalment coberta. En general amb una
+            pinzellada generosa de saïm cada 3-5 cm, és suficient. Això cadascú ha de trobar el seu punt.
+        </p>
+
+        <br>
+
+
+        <h6><strong>PAS 8:</strong></h6>
+        <p>Enrotllar la pasta. Començant pel costat llarg més "perjudicat" enrotllarem el rectangle de pasta
+            delicadament
+            fent un xurro allargat. Col·loquem aquest xurro al centre de la llauna amb paper de forn, en forma
+            d'espiral.
+            Tingues en compte que encara falta la meitat de l'ensaïmada, que es fa en dues parts.</p>
+        <br>
+
+
+        <h6><strong>PAS 9:</strong></h6>
+        <p> Agafa la segona meitat de la pasta i repeteix els passos 6, 7 i 8.
+        </p>
+        <br>
+
+
+        <h6><strong>PAS 10:</strong></h6>
+        <p> Un cop està l'espiral completa, amb un bon marge al voltant del xurro, esquitxa lleugerament l'ensaïmada amb
+            aigua, com si la bategessis. Col·loca-la al forn apagat a tovar. Igual que abans, si fa fred, hi ha poca
+            humitat
+            o li costa pujar, posa un got amb aigua bullent a dins del forn.</p>
+        <br>
+
+
+        <h6><strong>PAS 11:</strong></h6>
+        <p>Deixa que tovi fins que el xurro no tingui forats dins l'espiral i ompli la llauna.</p>
+
+        <br>
+
+
+        <h6><strong>PAS 12:</strong></h6>
+        <p>
+            Retira l'ensaïmada del forn. Engega el forn a 200 °C de dalt i de baix, sense ventilador. Quan estigui
+            calent
+            del tot, baixa a 180 °C i posa l'ensaïmada a baix de tot. Enforna 10-12 minuts. Si és grossa i el forn és
+            fluix,
+            pots deixar màxim fins a 15 minuts. Els últims 2-3 minuts pots posar només a baix, si t'agrada la base
+            torrada.
+
+            Vigila constantment el color de dalt que no es cremi. Passats els 10 minuts, vigila també a baix que no
+            estigui
+            massa crua o cremada.
+        </p>
+        <br>
+
+
+        <h6><strong>PAS 13:</strong></h6>
+        <p>Un cop estigui del tot cuita, treu-la i deixa que reposi en un lloc ben ventilat. Abans de servir, cobreix-la
+            completament amb sucre en pols.
+        </p>
+
+        <br><br>
+
+        <h3>Consells:</h3>
+
+        <br>
+
+        <div class="alert alert-success" role="alert">
+            [B] És bona amb gelat, xocolata desfeta i altres coses humides.
+        </div>
+
+        <div class="alert alert-warning" role="alert">
+            [C] Quan encara és calenta, no la tapis molt. Deixa que s'eixugui bé primer. Un pedaç / tela fina va bé.
+        </div>
+
+        <div class="alert alert-warning" role="alert">
+            [D] No li posis el sucre en pols quan encara és calenta.
+        </div>
+
+        <div class="alert alert-warning" role="alert">
+            [E] Si fa molt fred, fes la pasta el vespre abans i deixa-la que tovi durant la nit, al mati ben d'hora ja
+            estarà llesta per estirar.
+        </div>
+
+        <div class="alert alert-danger" role="alert">
+            [A] No siguis dominguero, no la tallis com una pizza, agafa seccions de l'espiral de la mida que vulguis.
+        </div>
+
+        <div class="alert alert-warning" role="alert">
+            [F] No intentis anar de llest i farcir-la de coses. Te la carregaràs. Menja-ho junt amb el que vulguis i ja
+            està.
+        </div>
+
+        <div class="alert alert-warning" role="alert">
+            [G] Si no te l'acabes, tapa-la bé i no s'assecarà tant. Quan estigui molt seca, menja-la amb coses humides
+            (llet, gelat, iogurt…)
+        </div>
+
+        <div class="alert alert-success" role="alert">
+            [H] Pots comprar capses per transportar-la a la majoria de forns.
+        </div>
+
+        <div class="alert alert-danger" role="alert">
+            [I] Si és per regalar a gent que li és igual tot, compra-la a l'aeroport i que els bombin, no ho notaran i
+            t'estalvies embrutar moltes coses.
+        </div>
+
+        <br>
+        <br>
+        <br>
+
+
+
+    </div>
+    </div>
+
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>
