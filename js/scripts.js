@@ -8,17 +8,21 @@ var image1 = document.getElementById('image1')
 var image2 = document.getElementById('image2')
 var image3 = document.getElementById('image3')
 
+
+var qOus = document.getElementById('qOus')
+var qAigua = document.getElementById('qAigua')
+
+
 // Ingredients petita, ous normals
 var igSucre = 150
 var igOus = 2
 var igFarina = 500
 var igAigua = 160
-var igLlevadura = 20
+var igLlevadura = 16
 
 var tamanyMult = 1
 var ousMult = 1
 var fredMult = 1
-
 
 function nextImage() {
 
@@ -80,7 +84,7 @@ function btnClick(n) {
     btnAction(n)
     document.getElementById(n).classList.replace("btn-secondary", "btn-primary")
 
-    quantityUpdate()
+    quantityUpdate(n)
     aiguaCalc()
     consoleLog()
 }
@@ -93,6 +97,9 @@ function consoleLog() {
 }
 
 function btnAction(n) {
+
+
+    let os = document.getElementById('OusSense')
 
     let tn = document.getElementById('TamanyNormal')
     let tg = document.getElementById('TamanyGrossa')
@@ -110,8 +117,9 @@ function btnAction(n) {
         settings[0] = n
     }
 
-    if (activeBtn == 'OusPetits' || activeBtn == 'OusNormals' || activeBtn == 'OusGrossos') {
+    if (activeBtn == 'OusSense' || activeBtn == 'OusPetits' || activeBtn == 'OusNormals' || activeBtn == 'OusGrossos') {
 
+        os.classList.replace("btn-primary", "btn-secondary")
         op.classList.replace("btn-primary", "btn-secondary")
         on.classList.replace("btn-primary", "btn-secondary")
         og.classList.replace("btn-primary", "btn-secondary")
@@ -126,22 +134,33 @@ function btnAction(n) {
 
         settings[2] = n
     }
+
+
 }
 
 
-function quantityUpdate() {
+function quantityUpdate(n) {
 
     let totalOus = Math.round(ratioCalc(igOus) * ousCalc())
-
+    let totalAigua = aiguaCalc()
     document.getElementById('sucre').innerHTML = ratioCalc(igSucre) + ' g'
     document.getElementById('ous').innerHTML = totalOus
     document.getElementById('farina').innerHTML = ratioCalc(igFarina) + ' g'
     document.getElementById('aigua').innerHTML = aiguaCalc() + ' ml'
     document.getElementById('llevadura').innerHTML = ratioCalc(igLlevadura) + ' g'
+
+
+    varWords(n, totalOus, totalAigua)
+
+
 }
+
+
+
 
 function ratioCalc(ig) {
 
+    if (settings[1] == 'OusSense') { tamanyMult = 0 }
     if (settings[0] == 'TamanyNormal') { tamanyMult = 1 }
     if (settings[0] == 'TamanyGrossa') { tamanyMult = 1.50 }
 
@@ -163,6 +182,9 @@ function ousCalc() {
 
         case 'OusGrossos':
             return 0.9
+
+        case 'OusSense':
+            return 1.50
     }
 }
 
@@ -172,3 +194,14 @@ function aiguaCalc() {
     return ousSubotal
 }
 
+function varWords(n, tto, tta) {
+
+
+    let arrOus = ['els 2 ous i el sucre', 'els 3 ous i el sucre', 'el sucre']
+
+    qOus.innerText = arrOus[0]
+    qAigua.innerText = tta + ' ml'
+
+
+
+}
