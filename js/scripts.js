@@ -8,10 +8,8 @@ var image1 = document.getElementById('image1')
 var image2 = document.getElementById('image2')
 var image3 = document.getElementById('image3')
 
-
 var qOus = document.getElementById('qOus')
 var qAigua = document.getElementById('qAigua')
-
 
 // Ingredients petita, ous normals
 var igSucre = 150
@@ -205,3 +203,5 @@ function varWords(n, tto, tta) {
 
 
 }
+
+
