@@ -309,7 +309,6 @@ function settingsValue() {
 }
 
 function hintManager() {
-
     let settingsValueArray = [...settingsValue()]
     console.log(settingsValueArray)
 
@@ -413,6 +412,17 @@ function hintManager() {
     }
     if (settingsValueArray[6] == 1 || settingsValueArray[6] == 2) {
         hint_12.classList.replace('hint-hidden', 'hint-visible')
+    }
+
+    if (settingsValueArray[3] == 1) {
+        hint_6.classList.replace('hint-visible', 'hint-hidden')
+        hint_15.classList.replace('hint-visible', 'hint-hidden')
+        hint_16.classList.replace('hint-visible', 'hint-hidden')
+    }
+    if (settingsValueArray[3] == 0) {
+        hint_6.classList.replace('hint-hidden', 'hint-visible')
+        hint_15.classList.replace('hint-hidden', 'hint-visible')
+        hint_16.classList.replace('hint-hidden', 'hint-visible')
     }
 
     if (settingsValueArray[2] == 0) {
