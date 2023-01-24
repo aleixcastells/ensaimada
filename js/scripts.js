@@ -57,6 +57,10 @@ function btnClick(n, text) {
     btnAction(n, text)
     updateUI(n, text)
     console.log(settings)
+
+    if (n == 6 && text == 'lloc_guiri') {
+        window.open('https://www.amazon.es/ensaimada-mallorquina/s?k=ensaimada+mallorquina', '_blank')
+    }
 }
 
 function btnAction(n, text) {
