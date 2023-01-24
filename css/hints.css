@@ -1,0 +1,7 @@
+.hint-hidden {
+    display: none;
+}
+
+.hint-visible {
+    display: block;
+}

@@ -12,6 +12,7 @@
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="http://www.aleixcastells.cat/img/logo.png">
     <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/hints.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
 
 </head>
@@ -33,207 +34,129 @@
     <div class="container">
         <div class="text-left mt-5">
 
-
-
             <!--  Text  -->
             <h1>Ensaimada: Settings</h1>
             <br>
-
 
             <p>Com de grossa la vols? Sa normal és més o menys com un vinil i sa grossa són uns 15 cm extra de diàmetre.
             </p>
 
         </div>
         <div class="btn-group" role="group" aria-label="Basic example">
-
-
-            <button onclick="btnClick('TamanyNormal')" id="TamanyNormal" type="button"
+            <button onclick="btnClick(1,'tamany_normal')" id="tamany_normal" type="button"
                 class="btn btn-secondary">Normal</button>
-            <button onclick="btnClick('TamanyGrossa')" id="TamanyGrossa" type="button"
+            <button onclick="btnClick(1, 'tamany_grossa')" id="tamany_grossa" type="button"
                 class="btn btn-secondary">Grossa</button>
         </div>
+        <br>
+        <br>
 
-
+        <p>La vols fer vegana?</p>
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <button onclick="btnClick(3, 'vegana_on')" id="vegana_on" type="button"
+                class="btn btn-secondary">Sí</button>
+            <button onclick="btnClick(3, 'vegana_off')" id="vegana_off" type="button"
+                class="btn btn-secondary">No</button>
+        </div>
         <br>
         <br>
 
         <p>Ous: com són de grossos?</p>
-
         <div class="btn-group" role="group" aria-label="Basic example">
-            <button onclick="btnClick('OusPetits')" id="OusPetits" type="button"
+            <button onclick="btnClick(2, 'ous_petits')" id="ous_petits" type="button"
                 class="btn btn-secondary">Petits</button>
-            <button onclick="btnClick('OusNormals')" id="OusNormals" type="button"
+            <button onclick="btnClick(2, 'ous_normals')" id="ous_normals" type="button"
                 class="btn btn-secondary">Normals</button>
-            <button onclick="btnClick('OusGrossos')" id="OusGrossos" type="button"
+            <button onclick="btnClick(2, 'ous_grossos')" id="ous_grossos" type="button"
                 class="btn btn-secondary">Grossos</button>
-
-
-            <button onclick="btnClick('OusSense')" id="OusSense" type="button" class="btn btn-secondary">Sense</button>
-
+            <button onclick="btnClick(2, 'ous_sense')" id="ous_sense" type="button"
+                class="btn btn-secondary">Sense</button>
         </div>
         <br>
         <br>
-        <p>Quin temps fa? (Menys de 21 ºC ho consideram fred)</p>
 
+        <p>Temperatura ambient</p>
         <div class="btn-group" role="group" aria-label="Basic example">
-            <button onclick="btnClick('TempsFred')" id="TempsFred" type="button" class="btn btn-secondary">Fred</button>
-            <button onclick="btnClick('TempsCalor')" id="TempsCalor" type="button"
+            <button onclick="btnClick(4, 'temp_fred')" id="temp_fred" type="button"
+                class="btn btn-secondary">Fred</button>
+            <button onclick="btnClick(4, 'temp_calor')" id="temp_calor" type="button"
                 class="btn btn-secondary">Calor</button>
         </div>
         <br>
         <br>
 
-        <br>
-
-
-        <h2> Que necessites?</h2>
-
-
-        <table class="table table-dark">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Ingredients</th>
-                    <th scope="col">Quantitat</th>
-                    <th scope="col">Ratio</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Sucre</td>
-                    <td id="sucre">150 g</td>
-                    <td>0,5 Tassó</td>
-                </tr>
-
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Ous</td>
-                    <td id="ous">2</td>
-                    <td>-</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Farina de força</td>
-                    <td id="farina">500 g</td>
-                    <td>2,5 Tassons</td>
-                </tr>
-                <tr>
-                    <th scope="row">4</th>
-                    <td>Aigua</td>
-                    <td id="aigua">160 ml</td>
-                    <td>0,5 Tassó</td>
-                </tr>
-                <tr>
-                    <th scope="row">6</th>
-                    <td>Llevadura fresca</td>
-                    <td id="llevadura">25 g</td>
-                    <td>-</td>
-                </tr>
-                <tr>
-                    <th scope="row">7</th>
-                    <td>Oli de girasol</td>
-                    <td>Per untar ses mans</td>
-                    <td>-</td>
-                </tr>
-                <tr>
-                    <th scope="row">8</th>
-                    <td>Saïm</td>
-                    <td>A voler</td>
-                    <td>-</td>
-                </tr>
-                <tr>
-                    <th scope="row">9</th>
-                    <td>Sucre en pols</td>
-                    <td>A voler</td>
-                    <td>-</td>
-                </tr>
-            </tbody>
-        </table>
-        <br>
-
-        <h2>
-            Preparació
-        </h2>
-
-
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">Temps de preparació: <strong>~ 4h</strong></li>
-            <li class="list-group-item">Temps de forn: <strong>10 - 15 min</strong></li>
-            <li class="list-group-item">Eines: Taula grossa, rodillo, bol gros, turmix, colador, forn, llauna rodona,
-                paper de forn.
-            </li>
-
-        </ul>
-        <br>
-
-        <!--
-
-        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-
-            <div class="carousel-inner">
-
-                <div id="image1" class="carousel-item active">
-                    <img class="d-block w-100" src="img/ensaimada.jpg" alt="First slide">
-                </div>
-
-                <div id="image2" class="carousel-item">
-                    <img class="d-block w-100" src="img/ensaimada2.jpg" alt="Second slide">
-                </div>
-
-                <div id="image3" class="carousel-item">
-                    <img class="d-block w-100" src="img/ensaimada3.jpg" alt="Third slide">
-                </div>
-
-            </div>
-
-            <a class="carousel-control-prev" onclick="prevImage()" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" onclick="nextImage()" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
+        <p>Nivell d'experiència</p>
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <button onclick="btnClick(5, 'xp_baix')" id="xp_baix" type="button" class="btn btn-secondary">Baix</button>
+            <button onclick="btnClick(5, 'xp_mig')" id="xp_mig" type="button" class="btn btn-secondary">Mig</button>
+            <button onclick="btnClick(5, 'xp_alt')" id="xp_alt" type="button"
+                class="btn btn-secondary">Veterano</button>
         </div>
--->
+        <br>
         <br>
 
+        <p>D'on ets?</p>
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <button onclick="btnClick(6, 'lloc_mallorca')" id="lloc_mallorca" type="button"
+                class="btn btn-secondary">Mallorca</button>
+            <button onclick="btnClick(6, 'lloc_peninsula')" id="lloc_peninsula" type="button"
+                class="btn btn-secondary">Península</button>
+            <button onclick="btnClick(6, 'lloc_guiri')" id="lloc_guiri" type="button"
+                class="btn btn-secondary">Guiri</button>
+        </div>
+        <br>
+        <br>
+
+        <p>De què la vols?</p>
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <button onclick="btnClick(7, 'de_llisa')" id="de_llisa" type="button"
+                class="btn btn-secondary">Llisa</button>
+            <button onclick="btnClick(7, 'de_cabell')" id="de_cabell" type="button" class="btn btn-secondary">Cabell
+                d'àngel</button>
+            <button onclick="btnClick(7, 'de_xocolata')" id="de_xocolata" type="button"
+                class="btn btn-secondary">Xocolata</button>
+        </div>
+        <br>
+        <br>
+
+        <br>
 
         <h6><strong>PAS 1:</strong></h6>
         <p> Descongelar el llevat fresc del tot, després desfer-lo en un bol amb els <span id="qAigua"
                 class="badge bg-primary">ML</span>
             d'aigua tèbia que hem preparat. Afegir
             <span id="qOus" class="badge bg-primary">OUS</span>. Mesclar amb
-            el
-            túrmix
-            fins
-            que
-            faci espuma.
+            el túrmix fins que faci espuma.
         </p>
-        <br>
-
         <h6><strong>PAS 2:</strong></h6>
         <p> Lentament, anar afegint farina amb una mà, mentre l'altra va mesclant. Quan la pasta tingui una mica de
             consistència, abans d'abocar tota la farina, unta't la mà amb oli de gira-sol, les vegades que faci falta,
             perquè no s'aferri tant la pasta.
         </p>
-        <div class="alert alert-warning" role="alert">
-            [E] Si els. ous son molt petits, amb menys farina serà
-            suficient. Mirar que la pasta no quedi massa eixuta.
-        </div>
 
-
-        <div class="alert alert-warning" role="alert">
-            [E] Si els ous son molt grans, farà falta més farina. Mirar que la pasta no quedi massa tova.
+        <div id="hint_1" class="alert alert-success hint-hidden" role="alert">
+            [1] Si no li poses ous, amb compensar amb aigua és suficient, uns 40 ml d'aigua per ou. Ja està calculat al
+            quadre d'ingredients.
         </div>
-        <br>
+        <div id="hint_2" class="alert alert-warning hint-hidden" role="alert">
+            [2] Si els ous són molt petits, amb menys farina serà suficient. Mirar que la pasta no quedi massa eixuta.
+        </div>
+        <div id="hint_3" class="alert alert-warning hint-hidden" role="alert">
+            [3] Si els ous són molt grans, farà falta més farina. Mirar que la pasta no quedi massa tova.
+        </div>
 
         <img src="img/ensaimada1.jpg" class="img-fluid" alt="Responsive image">
         <img src="img/ensaimada3.jpg" class="img-fluid" alt="Responsive image">
+        <br>
+        <br>
 
-        <br>
-        <br>
+        <div id="hint_4" class="alert alert-warning hint-hidden" role="alert">
+            [4] No t'allunyis molt de les quantitats indicades, ja que l'equilibri farina-aigua-sucre és important.
+        </div>
+        <div id="hint_5" class="alert alert-warning hint-hidden" role="alert">
+            [5] Si la pasta s'aferra molt a les mans, unta-te-les amb oli de girasol. Repeteix les vegades que faci
+            falta.
+        </div>
 
         <h6><strong>PAS 3:</strong></h6>
         <p>Acabar d'abocar la farina i pastar fins que tingui consistència, però sense que quedi molt ferma. Si
@@ -242,66 +165,69 @@
             estigui
             bé.
         </p>
-        <br>
 
         <h6><strong>PAS 4:</strong></h6>
         <p>
             Tapa-la amb un pedaç humit i deixa-la al forn (apagat) fins que s'hagi duplicat en mida. Si estas en un
             entorn càlid i humit, amb tapar-la és suficient.
-
         </p>
-        <div class="alert alert-warning" role="alert">
-            [E] En cas que faci fred o la pasta no tovi, posar un tassó amb aigua bullent dins el forn, per a crear
-            humitat
-            i temperatura.
+
+        <div id="hint_6" class="alert alert-warning hint-hidden" role="alert">
+            [6] En cas que faci fred o la pasta no tovi, posar un tassó amb aigua bullent dins el forn, per afegir
+            humitat i temperatura. En general vols evitar que la pasta estigui en un lloc fred.
         </div>
-        <br>
 
         <img src="img/ensaimada5.jpg" class="img-fluid" alt="Responsive image">
+        <br>
+        <br>
 
-        <br>
-        <br>
+        <div id="hint_7" class="alert alert-warning hint-hidden" role="alert">
+            [7] Assegura't que està tapada i no exposada a la circulació d'aire. Si s'asseca li costarà tovar.
+        </div>
+
         <h6><strong>PAS 5:</strong></h6>
         <p>Quan la pasta hagi tovat, pastar-la de nou.
             Repeteix el PAS 4 i 5 unes quantes vegades, depenent del temps que tinguis. Mínim tovar 2 vegades.
         </p>
-        <div class="alert alert-warning" role="alert">
-            [E] Si fa molt fred, fes la pasta el vespre abans i deixa-la que tovi durant la nit, al mati ben d'hora ja
-            estarà llesta per estirar.
+
+        <div id="hint_8" class="alert alert-warning hint-hidden" role="alert">
+            [8] Si vols tenir l'ensaïmada feta a l'hora de dinar, es recomana posar-s'hi la tarda abans i fer tots els
+            passos fins al 5 durant el capvespre. Així a la nit ja estarà llesta per al pas 6.
         </div>
-        <br>
 
         <h6><strong>PAS 6:</strong></h6>
-
         <p> Unta tota la taula amb oli de gira-sol. Divideix la pasta en dues meitats.
-
             Amb un rodillo, estira bé la primera meitat de la pasta fins que estigui ben fina, creant un rectangle el
             més
             regular possible. Després, estira manualment la tela de la pasta perquè sigui tan fina com sigui possible.
-            Si la
-            pasta ha quedat perfecta, hauries d'aconseguir que es transparenti una mica. Si es forada, no passa res. En
-            cas
-            que es foradi molt, no estirar més.
+            Si la pasta ha quedat perfecta, hauries d'aconseguir que es transparenti una mica. Si es forada, no passa
+            res. En
+            cas que es foradi molt, no estirar més.
 
             La pasta ideal és: Rectangular, molt fina (1-2 mm), sense forats, una mica transparent i flexible.
             Normalment,
             no és possible que sigui perfecta, però acostar-s'hi el màxim és clau perquè surti bona.
         </p>
-        <br>
 
         <img src="img/ensaimada6.jpg" class="img-fluid" alt="Responsive image">
-
         <br>
         <br>
 
+        <div id="hint_9" class="alert alert-warning hint-hidden" role="alert">
+            [9] Si et queden unes voreres molt gruixades, foradades o una forma molt allunyada d'un oval/rectangle, pots
+            agafar un ganivet i perfilar la tela.
+        </div>
+
+        <div id="hint_10" class="alert alert-warning hint-hidden" role="alert">
+            [10] La pasta sobrant la pots guardar, deixar-la tovar i coure-la al forn després quan facis l'ensaïmada.
+            També és bona.
+        </div>
 
         <h6><strong>PAS 7:</strong></h6>
         <p>
             Untar la pasta estirada amb saïm. A gust de cadascú, no ha d'estar totalment coberta. En general amb una
             pinzellada generosa de saïm cada 3-5 cm, és suficient. Això cadascú ha de trobar el seu punt.
         </p>
-        <br>
-
         <h6><strong>PAS 8:</strong></h6>
         <p>Enrotllar la pasta. Començant pel costat llarg més "perjudicat" enrotllarem el rectangle de pasta
             delicadament
@@ -309,33 +235,50 @@
             d'espiral.
             Tingues en compte que encara falta la meitat de l'ensaïmada, que es fa en dues parts.
         </p>
-        <br>
 
+        <div id="hint_11" class="alert alert-success hint-hidden" role="alert">
+            [11] L'ensaïmada vegana es fa amb oli en lloc de saïm. És recomanable amb oli de gira-sol, però si ho
+            prefereixes, amb oli d'oliva també funciona. És important untar-la generosament.
+        </div>
+        <div id="hint_12" class="alert alert-primary hint-hidden" role="alert">
+            [12] Ara és el moment de farcir-la. Sense abusar, al llarg d'un dels dos costats, fes una tira llarga del
+            teu farciment deixant un marge d'uns tres centímetres. La tira, que no sigui més gruixada que un dit. Quan
+            la enrotllis, comença per aquest costat i ves amb molt de compte de mantenir la uniformitat del farciment.
+            Personalment, no em complicaria la vida i la faria llisa, però tu mateix…
+        </div>
 
         <img src="img/ensaimada7.jpg" class="img-fluid" alt="Responsive image">
         <img src="img/ensaimada8.jpg" class="img-fluid" alt="Responsive image">
+        <br>
+        <br>
 
-        <br>
-        <br>
+        <div id="hint_13" class="alert alert-warning hint-hidden" role="alert">
+            [13] Si estàs fet un masterxef, abans de col·locar el xurro dins la llauna, agafa'l per un extrem i
+            delicadament deixa'l penjar verticalment. Amb l'altra mà, amb cura de no treure tot l'oli/saïm que has posat
+            a dins, estira'l fins que sigui un terç més llarg.
+
+        </div>
 
         <h6><strong>PAS 9:</strong></h6>
         <p> Agafa la segona meitat de la pasta i repeteix els passos 6, 7 i 8.
         </p>
-        <br>
+
+        <div id="hint_14" class="alert alert-warning hint-hidden" role="alert">
+            [14] No t'oblidis de posar oli a la taula de nou.
+        </div>
 
         <h6><strong>PAS 10:</strong></h6>
         <p> Un cop està l'espiral completa, amb un bon marge al voltant del xurro, esquitxa lleugerament l'ensaïmada amb
-            aigua, com si la bategessis. Col·loca-la al forn apagat a tovar.
+            aigua, com si la bategessis. Col·loca-la al forn apagat a tovar. </p>
 
-        <div class="alert alert-warning" role="alert">
-            [B] Igual que abans, si fa fred, hi ha poca
-            humitat
-            o li costa pujar, posa un got amb aigua bullent a dins del forn.
+        <div id="hint_15" class="alert alert-warning hint-hidden" role="alert">
+            [15] Igual que abans, si fa fred, hi ha poca humitat o li costa pujar, posa un got amb aigua bullent a dins
+            del forn.
         </div>
-        </p>
-        <br>
-
-
+        <div id="hint_16" class="alert alert-warning hint-hidden" role="alert">
+            [16] Si fa molt de fred, pots encendre el forn 5 minuts abans de posar l'ensaïmada perquè estigui a una
+            temperatura ambient semblant a l'estiu. Has de poder tocar el forn còmodament sense cremar-te.
+        </div>
 
         <h6><strong>PAS 11:</strong></h6>
         <p>Deixa que tovi fins que el xurro no tingui forats dins l'espiral i ompli la llauna.
@@ -346,6 +289,12 @@
 
         <br>
         <br>
+
+        <div id="hint_17" class="alert alert-warning hint-hidden" role="alert">
+            [17] Si veus que la pasta et tova molt ràpidament, em sap greu dir-t'ho, però hauràs de posar-te un
+            despertador a les 5 h màxim després del pas 10. Mirar si està ja completament estesa i inflada dins la
+            llauna i passar al pas 12. En cas que no hi estigui, pots tornar a dormir fins al matí.
+        </div>
 
         <h6><strong>PAS 12:</strong></h6>
         <p>
@@ -365,6 +314,19 @@
 
         <br>
         <br>
+
+        <div id="hint_18" class="alert alert-warning hint-hidden" role="alert">
+            [18] Tingues en compte que dins el forn sembla més cuita del que és en realitat.
+        </div>
+        <div id="hint_19" class="alert alert-warning hint-hidden" role="alert">
+            [19] Si és grossa i el forn és fluix, pots deixar màxim fins a 15 minuts. Els últims 2-3 minuts pots posar
+            només a baix, si t'agrada la base torrada.
+        </div>
+        <div id="hint_20" class="alert alert-warning hint-hidden" role="alert">
+            [20] Vigila constantment el color de dalt que no es cremi. Passats els 10 minuts, vigila també a baix que no
+            estigui massa crua o cremada.
+        </div>
+
         <h6><strong>PAS 13:</strong></h6>
         <p>Un cop estigui del tot cuita, treu-la i deixa que reposi en un lloc ben ventilat. Abans de servir, cobreix-la
             completament amb sucre en pols.
@@ -372,52 +334,47 @@
 
         </p>
         <br>
+
         <img src="img/ensaimada11.jpg" class="img-fluid" alt="Responsive image">
         <img src="img/ensaimada12.jpg" class="img-fluid" alt="Responsive image">
+        <br>
+        <br>
+
+        <div id="hint_21" class="alert alert-warning hint-hidden" role="alert">
+            [21] És bona amb gelat, xocolata desfeta i altres coses parescudes.
+        </div>
+        <div id="hint_22" class="alert alert-warning hint-hidden" role="alert">
+            [22] Quan encara és calenta, no la tapis molt. Deixa que s'eixugui bé primer. Un pedaç / tela fina va bé.
+        </div>
+        <div id="hint_23" class="alert alert-warning hint-hidden" role="alert">
+            [23] No li posis el sucre en pols quan encara és calenta.
+        </div>
 
         <br>
         <br>
-        <div class="alert alert-warning" role="alert">
-            [B] És bona amb gelat, xocolata desfeta i altres coses humides.
-        </div>
-
-
-
-        <div class="alert alert-warning" role="alert">
-            [C] Quan encara és calenta, no la tapis molt. Deixa que s'eixugui bé primer. Un pedaç / tela fina va bé.
-        </div>
-        <div class="alert alert-warning" role="alert">
-            [D] No li posis el sucre en pols quan encara és calenta.
-        </div>
-        <br><br>
 
         <h3>Consells:</h3>
 
-        <br>
-
-        <div class="alert alert-warning" role="alert">
-            [A] No siguis dominguero, no la tallis com una pizza, agafa seccions de l'espiral de la mida que vulguis.
+        <div id="hint_24" class="alert alert-warning hint-hidden" role="alert">
+            [24] No siguis dominguero, no la tallis com una pizza, agafa seccions de l'espiral de la mida que vulguis.
         </div>
-
-        <div class="alert alert-warning" role="alert">
-            [F] No intentis anar de llest i farcir-la de coses. Te la carregaràs. Menja-ho junt amb el que vulguis i ja
-            està.
+        <div id="hint_25" class="alert alert-warning hint-hidden" role="alert">
+            [25] No intentis anar de llest i farcir-la de coses. Te la carregaràs. Menja-ho junt amb el que vulguis i ja
+            està… Llisa és més bona!
         </div>
-
-        <div class="alert alert-warning" role="alert">
-            [G] Si no te l'acabes, tapa-la amb una tela i no s'assecarà tant. Quan estigui molt seca, menja-la amb coses
-            humides (llet, gelat, iogurt…)
+        <div id="hint_26" class="alert alert-warning hint-hidden" role="alert">
+            [26] Si no te l'acabes, tapa-la amb una tela i no s'assecarà tant. Quan estigui molt seca, menja-la amb
+            coses humides (llet, gelat, iogurt…)
         </div>
-
-        <div class="alert alert-warning" role="alert">
-            [H] Pots comprar capses per transportar-la a la majoria de forns.
+        <div id="hint_27" class="alert alert-warning hint-hidden" role="alert">
+            [27] Pots comprar capses per transportar-la a la majoria de forns.
         </div>
-
-        <div class="alert alert-warning" role="alert">
-            [I] Si és per regalar a gent que li és igual tot, compra-la a l'aeroport i que els bombin, no ho notaran i
+        <div id="hint_28" class="alert alert-warning hint-hidden" role="alert">
+            [28] Si és per regalar a gent que li és igual tot, compra-la a l'aeroport i que els bombin, no ho notaran i
             t'estalvies embrutar moltes coses.
         </div>
-
+        <br>
+        <br>
         <br>
         <br>
         <br>
