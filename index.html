@@ -32,96 +32,112 @@
 
     <!-- Page content-->
     <div class="container">
-        <div class="text-left mt-5">
 
-            <!--  Text  -->
-            <h1>Ensaimada: Settings</h1>
-            <br>
+        <!-- INGREDIENTS -->
 
-            <p>Com de grossa la vols? Sa normal és més o menys com un vinil i sa grossa són uns 15 cm extra de diàmetre.
-            </p>
+        <br>
+        <h1>Ensaimada: Settings</h1>
+        <br>
 
+        <div class="row">
+
+            <div class="col-sm">
+                <p>Com de grossa la vols?
+                </p>
+
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <button onclick="btnClick(1,'tamany_normal')" id="tamany_normal" type="button"
+                        class="btn btn-secondary">Normal</button>
+                    <button onclick="btnClick(1, 'tamany_grossa')" id="tamany_grossa" type="button"
+                        class="btn btn-secondary">Grossa</button>
+                </div>
+                <br>
+                <br>
+
+                <p>Ous: com són de grossos?</p>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <button onclick="btnClick(2, 'ous_petits')" id="ous_petits" type="button"
+                        class="btn btn-secondary">Petits</button>
+                    <button onclick="btnClick(2, 'ous_normals')" id="ous_normals" type="button"
+                        class="btn btn-secondary">Normals</button>
+                    <button onclick="btnClick(2, 'ous_grossos')" id="ous_grossos" type="button"
+                        class="btn btn-secondary">Grossos</button>
+                    <button onclick="btnClick(2, 'ous_sense')" id="ous_sense" type="button"
+                        class="btn btn-secondary">Sense</button>
+                </div>
+                <br>
+                <br>
+
+                <p>Temperatura ambient</p>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <button onclick="btnClick(4, 'temp_fred')" id="temp_fred" type="button"
+                        class="btn btn-secondary">Fred</button>
+                    <button onclick="btnClick(4, 'temp_calor')" id="temp_calor" type="button"
+                        class="btn btn-secondary">Calor</button>
+                </div>
+                <br>
+                <br>
+            </div>
+
+            <div class="col-sm">
+
+                <p>D'on ets?</p>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <button onclick="btnClick(6, 'lloc_mallorca')" id="lloc_mallorca" type="button"
+                        class="btn btn-secondary">Mallorca</button>
+                    <button onclick="btnClick(6, 'lloc_peninsula')" id="lloc_peninsula" type="button"
+                        class="btn btn-secondary">Península</button>
+                    <button onclick="btnClick(6, 'lloc_guiri')" id="lloc_guiri" type="button"
+                        class="btn btn-secondary">Guiri</button>
+                </div>
+                <br>
+                <br>
+
+                <p>Nivell d'experiència</p>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <button onclick="btnClick(5, 'xp_baix')" id="xp_baix" type="button"
+                        class="btn btn-secondary">Baix</button>
+                    <button onclick="btnClick(5, 'xp_mig')" id="xp_mig" type="button"
+                        class="btn btn-secondary">Mig</button>
+                    <button onclick="btnClick(5, 'xp_alt')" id="xp_alt" type="button"
+                        class="btn btn-secondary">Veterano</button>
+                </div>
+                <br>
+                <br>
+
+            </div>
+
+            <div class="col-sm">
+
+                <p>De què la vols?</p>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <button onclick="btnClick(7, 'de_llisa')" id="de_llisa" type="button"
+                        class="btn btn-secondary">Llisa</button>
+                    <button onclick="btnClick(7, 'de_cabell')" id="de_cabell" type="button"
+                        class="btn btn-secondary">Cabell
+                        d'àngel</button>
+                    <button onclick="btnClick(7, 'de_xocolata')" id="de_xocolata" type="button"
+                        class="btn btn-secondary">Xocolata</button>
+                </div>
+                <br>
+                <br>
+
+                <p>La vols fer vegana?</p>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <button onclick="btnClick(3, 'vegana_on')" id="vegana_on" type="button"
+                        class="btn btn-secondary">Sí</button>
+                    <button onclick="btnClick(3, 'vegana_off')" id="vegana_off" type="button"
+                        class="btn btn-secondary">No</button>
+                </div>
+                <br>
+                <br>
+            </div>
         </div>
-        <div class="btn-group" role="group" aria-label="Basic example">
-            <button onclick="btnClick(1,'tamany_normal')" id="tamany_normal" type="button"
-                class="btn btn-secondary">Normal</button>
-            <button onclick="btnClick(1, 'tamany_grossa')" id="tamany_grossa" type="button"
-                class="btn btn-secondary">Grossa</button>
-        </div>
-        <br>
-        <br>
 
-        <p>Ous: com són de grossos?</p>
-        <div class="btn-group" role="group" aria-label="Basic example">
-            <button onclick="btnClick(2, 'ous_petits')" id="ous_petits" type="button"
-                class="btn btn-secondary">Petits</button>
-            <button onclick="btnClick(2, 'ous_normals')" id="ous_normals" type="button"
-                class="btn btn-secondary">Normals</button>
-            <button onclick="btnClick(2, 'ous_grossos')" id="ous_grossos" type="button"
-                class="btn btn-secondary">Grossos</button>
-            <button onclick="btnClick(2, 'ous_sense')" id="ous_sense" type="button"
-                class="btn btn-secondary">Sense</button>
-        </div>
-        <br>
-        <br>
 
-        <p>Temperatura ambient</p>
-        <div class="btn-group" role="group" aria-label="Basic example">
-            <button onclick="btnClick(4, 'temp_fred')" id="temp_fred" type="button"
-                class="btn btn-secondary">Fred</button>
-            <button onclick="btnClick(4, 'temp_calor')" id="temp_calor" type="button"
-                class="btn btn-secondary">Calor</button>
-        </div>
-        <br>
-        <br>
-
-        <p>Nivell d'experiència</p>
-        <div class="btn-group" role="group" aria-label="Basic example">
-            <button onclick="btnClick(5, 'xp_baix')" id="xp_baix" type="button" class="btn btn-secondary">Baix</button>
-            <button onclick="btnClick(5, 'xp_mig')" id="xp_mig" type="button" class="btn btn-secondary">Mig</button>
-            <button onclick="btnClick(5, 'xp_alt')" id="xp_alt" type="button"
-                class="btn btn-secondary">Veterano</button>
-        </div>
-        <br>
-        <br>
-
-        <p>D'on ets?</p>
-        <div class="btn-group" role="group" aria-label="Basic example">
-            <button onclick="btnClick(6, 'lloc_mallorca')" id="lloc_mallorca" type="button"
-                class="btn btn-secondary">Mallorca</button>
-            <button onclick="btnClick(6, 'lloc_peninsula')" id="lloc_peninsula" type="button"
-                class="btn btn-secondary">Península</button>
-            <button onclick="btnClick(6, 'lloc_guiri')" id="lloc_guiri" type="button"
-                class="btn btn-secondary">Guiri</button>
-        </div>
-        <br>
-        <br>
-
-        <p>De què la vols?</p>
-        <div class="btn-group" role="group" aria-label="Basic example">
-            <button onclick="btnClick(7, 'de_llisa')" id="de_llisa" type="button"
-                class="btn btn-secondary">Llisa</button>
-            <button onclick="btnClick(7, 'de_cabell')" id="de_cabell" type="button" class="btn btn-secondary">Cabell
-                d'àngel</button>
-            <button onclick="btnClick(7, 'de_xocolata')" id="de_xocolata" type="button"
-                class="btn btn-secondary">Xocolata</button>
-        </div>
-        <br>
-        <br>
-
-        <p>La vols fer vegana?</p>
-        <div class="btn-group" role="group" aria-label="Basic example">
-            <button onclick="btnClick(3, 'vegana_on')" id="vegana_on" type="button"
-                class="btn btn-secondary">Sí</button>
-            <button onclick="btnClick(3, 'vegana_off')" id="vegana_off" type="button"
-                class="btn btn-secondary">No</button>
-        </div>
-        <br>
-        <br>
-
+        <!-- INGREDIENTS -->
         <br>
         <h2> Que necessites?</h2>
-
 
         <table class="table table-dark">
             <thead>
@@ -184,6 +200,8 @@
                 </tr>
             </tbody>
         </table>
+
+
         <br>
 
         <h2>
@@ -199,6 +217,10 @@
             </li>
 
         </ul>
+        <br>
+
+        <img src="img/eines.png" class="img-fluid" alt="Responsive image">
+
         <br>
         <br>
 
