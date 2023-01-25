@@ -1,4 +1,4 @@
-var settings = ['Ensaïmada:', 'tamany_normal', 'ous_normals', 'vegana_off', 'temp_calor', 'xp_baix', 'lloc_mallorca', 'de_llisa']
+var settings = ['Ensaïmada:', '', '', '', '', '', '', '']
 var total_hints = document.getElementsByClassName('hint').length;
 console.log('Total hints: ', total_hints)
 
@@ -44,6 +44,7 @@ for (let i = 0; i < hintList.length; i++) {
 // Ingredients
 var ingrMult = [0.7, 1, 1.3]
 var ingrMultSelect = 1
+var extraAigua = 0
 
 const ingredients = {
 
@@ -56,9 +57,9 @@ const ingredients = {
     temps_hivern: '\~ 18 h',
 
     sucreQ: function () { return this.sucre * ingrMult[ingrMultSelect] + ' g' },
-    ousQ: function () { return this.ous * ingrMult[ingrMultSelect] + ' ous' },
+    ousQ: function () { return Math.ceil(this.ous * ingrMult[ingrMultSelect]) + ' ous' },
     farinaQ: function () { return this.farina * ingrMult[ingrMultSelect] + ' g' },
-    aiguaQ: function () { return this.aigua * ingrMult[ingrMultSelect] + ' ml' },
+    aiguaQ: function () { return (this.aigua * ingrMult[ingrMultSelect] + extraAigua) + ' ml' },
     llevaduraQ: function () { return this.llevadura * ingrMult[ingrMultSelect] + ' g' },
 }
 
@@ -70,6 +71,7 @@ function btnClick(n, text) {
     console.clear()
     btnAction(n, text)
     updateUI(n, text)
+    console.log(extraAigua)
 }
 
 function btnAction(n, text) {
@@ -98,10 +100,15 @@ function btnInteraction(n, text) {
         case 1:
             if (text == 'tamany_normal') {
                 ingrMultSelect = 1
+                extraAigua = 0
             }
             if (text == 'tamany_grossa') {
                 ingrMultSelect = 2
+
+                if (settings[3] == 'vegana_off') { extraAigua = 20 }
+                if (settings[3] == 'vegana_on') { extraAigua = 0 }
             }
+
 
 
         // Ous: com són de grossos?
@@ -137,6 +144,7 @@ function btnInteraction(n, text) {
                 settings[2] = 'ous_sense'
                 ingredients.ous = 0
                 ingredients.aigua = 240
+                extraAigua = 0
 
             }
             if (text == 'vegana_off') {
@@ -144,9 +152,10 @@ function btnInteraction(n, text) {
                 settings[2] = 'ous_normals'
                 ingredients.ous = 2;
                 ingredients.aigua = 160
+                if (settings[1] == 'tamany_grossa') { extraAigua = 20 }
+                if (settings[1] == 'tamany_normal') { extraAigua = 0 }
             }
             break;
-
 
         // Nivell d'experiència
         case 5:
@@ -177,7 +186,7 @@ function btnInteraction(n, text) {
 
 function llisaMillor() {
 
-    if (settings[5] != 'xp_alt' && settings[7] != 'de_llisa') {
+    if (settings[5] != 'xp_alt' && settings[7] != 'de_llisa' && settings[7] != '') {
         alert("No intentis anar de llest i farcir-la de coses. Te la carregaràs. Menja-ho junt amb el que vulguis i ja està... Llisa és més bona!\n\n(Necessites marcar l'opció \'Veterano\' per a tenir aquesta opció diposnible)")
         settings[7] = 'de_llisa'
     }
@@ -233,7 +242,4 @@ function ingredientManager() {
 
     document.getElementById('eggs').innerHTML = ingredients.ousQ()
     document.getElementById('water').innerHTML = ingredients.aiguaQ()
-
-
-
 }
