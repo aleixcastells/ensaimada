@@ -40,6 +40,31 @@ for (let i = 0; i < hintList.length; i++) {
     hintList[i].classList.add('hint-hidden')
 }
 
+
+// Ingredients
+var ingrMult = [0.7, 1, 1.3]
+var ingrMultSelect = 1
+
+const ingredients = {
+
+    sucre: 150,
+    ous: 2,
+    farina: 500,
+    aigua: 160,
+    llevadura: 15,
+    temps_estiu: '\~ 10 h',
+    temps_hivern: '\~ 18 h',
+
+    sucreQ: function () { return this.sucre * ingrMult[ingrMultSelect] + ' g' },
+    ousQ: function () { return this.ous * ingrMult[ingrMultSelect] + ' ous' },
+    farinaQ: function () { return this.farina * ingrMult[ingrMultSelect] + ' g' },
+    aiguaQ: function () { return this.aigua * ingrMult[ingrMultSelect] + ' ml' },
+    llevaduraQ: function () { return this.llevadura * ingrMult[ingrMultSelect] + ' g' },
+}
+
+document.getElementById('eggs').innerHTML = ingredients.ousQ()
+document.getElementById('water').innerHTML = ingredients.aiguaQ()
+
 function btnClick(n, text) {
 
     console.clear()
@@ -60,6 +85,7 @@ function updateUI(n, text) {
     btnInteraction(n, text)
     hintManager()
     btnManager()
+    ingredientManager()
     btnInteraction(n, text)
     console.log(n, text)
 }
@@ -68,21 +94,40 @@ function btnInteraction(n, text) {
 
     switch (n) {
 
+        // Mida ensaïmada
+        case 1:
+            if (text == 'tamany_normal') {
+                ingrMultSelect = 1
+            }
+            if (text == 'tamany_grossa') {
+                ingrMultSelect = 2
+            }
+
+
         // Ous: com són de grossos?
         case 2:
             if (text == 'ous_petits') {
                 settings[3] = 'vegana_off'
                 document.getElementById(btnArray[6]).classList.replace('btn-success', 'btn-secondary')
+                ingredients.ous = 2;
+                ingredients.aigua = 165
             }
             if (text == 'ous_normals') {
                 settings[3] = 'vegana_off'
                 document.getElementById(btnArray[6]).classList.replace('btn-success', 'btn-secondary')
+                ingredients.ous = 2;
+                ingredients.aigua = 160
             }
             if (text == 'ous_grossos') {
                 settings[3] = 'vegana_off'
                 document.getElementById(btnArray[6]).classList.replace('btn-success', 'btn-secondary')
+                ingredients.ous = 2;
+                ingredients.aigua = 155
             }
-            if (text == 'ous_sense') { }
+            if (text == 'ous_sense') {
+                ingredients.ous = 0;
+                ingredients.aigua = 240
+            }
             break;
 
         // Vegana?
@@ -90,12 +135,18 @@ function btnInteraction(n, text) {
             if (text == 'vegana_on') {
                 document.getElementById(btnArray[6]).classList.replace('btn-primary', 'btn-success')
                 settings[2] = 'ous_sense'
+                ingredients.ous = 0
+                ingredients.aigua = 240
+
             }
             if (text == 'vegana_off') {
                 document.getElementById(btnArray[6]).classList.replace('btn-success', 'btn-secondary')
                 settings[2] = 'ous_normals'
+                ingredients.ous = 2;
+                ingredients.aigua = 160
             }
             break;
+
 
         // Nivell d'experiència
         case 5:
@@ -163,4 +214,26 @@ function btnManager() {
             document.getElementById(btnArray[i]).classList.replace('btn-secondary', 'btn-primary')
         }
     }
+}
+
+function ingredientManager() {
+
+    document.getElementById('sucre').innerHTML = ingredients.sucreQ()
+    document.getElementById('ous').innerHTML = ingredients.ousQ()
+    document.getElementById('farina').innerHTML = ingredients.farinaQ()
+    document.getElementById('aigua').innerHTML = ingredients.aiguaQ()
+    document.getElementById('llevadura').innerHTML = ingredients.llevaduraQ()
+
+    if (settings[4] == 'temp_fred') {
+        document.getElementById("tempsPrep").innerHTML = ingredients.temps_hivern
+    }
+    if (settings[4] == 'temp_calor') {
+        document.getElementById('tempsPrep').innerHTML = ingredients.temps_estiu
+    }
+
+    document.getElementById('eggs').innerHTML = ingredients.ousQ()
+    document.getElementById('water').innerHTML = ingredients.aiguaQ()
+
+
+
 }
