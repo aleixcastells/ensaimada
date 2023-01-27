@@ -51,7 +51,7 @@ const ingredients = {
     sucre: 150,
     ous: 2,
     farina: 500,
-    aigua: 160,
+    aigua: 150,
     llevadura: 15,
     temps_estiu: '\~ 10 h',
     temps_hivern: '\~ 18 h',
