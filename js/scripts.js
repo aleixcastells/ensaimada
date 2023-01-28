@@ -1,9 +1,15 @@
-var settings = ['Ensaïmada:', '', '', '', '', '', '', '']
+var settings = ['ensaïmada', '', '', '', '', '', '', '']
 var total_hints = document.getElementsByClassName('hint').length;
 console.log('Total hints: ', total_hints)
 
 // Buttons
-var btnArray = ['tamany_normal', 'tamany_grossa', 'ous_petits', 'ous_normals', 'ous_grossos', 'ous_sense', 'vegana_on', 'vegana_off', 'temp_calor', 'temp_fred', 'xp_baix', 'xp_mig', 'xp_alt', 'lloc_mallorca', 'lloc_peninsula', 'lloc_guiri', 'de_llisa', 'de_cabell', 'de_xocolata']
+var btnArray = [
+    'tamany_normal', 'tamany_grossa', 'ous_petits', 'ous_normals',
+    'ous_grossos', 'ous_sense', 'vegana_on', 'vegana_off', 'temp_calor',
+    'temp_fred', 'xp_baix', 'xp_mig', 'xp_alt', 'lloc_mallorca',
+    'lloc_peninsula', 'lloc_guiri', 'de_llisa', 'de_cabell', 'de_xocolata'
+]
+
 console.log('Total buttons: ', btnArray.length)
 
 var tamany_normal = document.getElementById('tamany_normal')
@@ -40,10 +46,10 @@ for (let i = 0; i < hintList.length; i++) {
     hintList[i].classList.add('hint-hidden')
 }
 
-
 // Ingredients
 var ingrMult = [0.7, 1, 1.3]
 var ingrMultSelect = 1
+var baseAigua = 100
 var extraAigua = 0
 
 const ingredients = {
@@ -51,7 +57,7 @@ const ingredients = {
     sucre: 150,
     ous: 2,
     farina: 500,
-    aigua: 150,
+    aigua: baseAigua,
     llevadura: 15,
     temps_estiu: '\~ 10 h',
     temps_hivern: '\~ 18 h',
@@ -68,15 +74,13 @@ document.getElementById('water').innerHTML = ingredients.aiguaQ()
 
 function btnClick(n, text) {
 
-    console.clear()
     btnAction(n, text)
     updateUI(n, text)
-    console.log(extraAigua)
 }
 
 function btnAction(n, text) {
+
     settings[n] = text
-    console.log(settings)
 
     if (n == 6 && text == 'lloc_guiri') {
         window.open('https://www.amazon.es/ensaimada-mallorquina/s?k=ensaimada+mallorquina', '_blank')
@@ -84,12 +88,12 @@ function btnAction(n, text) {
 }
 
 function updateUI(n, text) {
+
     btnInteraction(n, text)
     hintManager()
     btnManager()
     ingredientManager()
     btnInteraction(n, text)
-    console.log(n, text)
 }
 
 function btnInteraction(n, text) {
@@ -109,27 +113,25 @@ function btnInteraction(n, text) {
                 if (settings[3] == 'vegana_on') { extraAigua = 0 }
             }
 
-
-
         // Ous: com són de grossos?
         case 2:
             if (text == 'ous_petits') {
                 settings[3] = 'vegana_off'
                 document.getElementById(btnArray[6]).classList.replace('btn-success', 'btn-secondary')
                 ingredients.ous = 2;
-                ingredients.aigua = 165
+                ingredients.aigua = baseAigua + 5
             }
             if (text == 'ous_normals') {
                 settings[3] = 'vegana_off'
                 document.getElementById(btnArray[6]).classList.replace('btn-success', 'btn-secondary')
                 ingredients.ous = 2;
-                ingredients.aigua = 160
+                ingredients.aigua = baseAigua
             }
             if (text == 'ous_grossos') {
                 settings[3] = 'vegana_off'
                 document.getElementById(btnArray[6]).classList.replace('btn-success', 'btn-secondary')
                 ingredients.ous = 2;
-                ingredients.aigua = 155
+                ingredients.aigua = baseAigua - 5
             }
             if (text == 'ous_sense') {
                 ingredients.ous = 0;
@@ -151,7 +153,7 @@ function btnInteraction(n, text) {
                 document.getElementById(btnArray[6]).classList.replace('btn-success', 'btn-secondary')
                 settings[2] = 'ous_normals'
                 ingredients.ous = 2;
-                ingredients.aigua = 160
+                ingredients.aigua = baseAigua
                 if (settings[1] == 'tamany_grossa') { extraAigua = 20 }
                 if (settings[1] == 'tamany_normal') { extraAigua = 0 }
             }
@@ -202,9 +204,7 @@ function hintManager() {
         classNameArray = getClassName.split(' ')
         let arrayCheck = settings.some(item => classNameArray.includes(item))
 
-        if (arrayCheck == true) {
-            hintList[i].classList.replace('hint-hidden', 'hint-visible')
-        }
+        if (arrayCheck == true) { hintList[i].classList.replace('hint-hidden', 'hint-visible') }
         else { hintList[i].classList.replace('hint-visible', 'hint-hidden') }
     }
 }
@@ -215,18 +215,12 @@ function btnManager() {
 
         let isActive = settings.indexOf(btnArray[i])
 
-        if (isActive == -1) {
-            document.getElementById(btnArray[i]).classList.replace('btn-primary', 'btn-secondary')
-        }
-
-        else {
-            document.getElementById(btnArray[i]).classList.replace('btn-secondary', 'btn-primary')
-        }
+        if (isActive == -1) { document.getElementById(btnArray[i]).classList.replace('btn-primary', 'btn-secondary') }
+        else { document.getElementById(btnArray[i]).classList.replace('btn-secondary', 'btn-primary') }
     }
 }
 
 function ingredientManager() {
-
     document.getElementById('sucre').innerHTML = ingredients.sucreQ()
     document.getElementById('ous').innerHTML = ingredients.ousQ()
     document.getElementById('farina').innerHTML = ingredients.farinaQ()
@@ -242,4 +236,21 @@ function ingredientManager() {
 
     document.getElementById('eggs').innerHTML = ingredients.ousQ()
     document.getElementById('water').innerHTML = ingredients.aiguaQ()
+}
+
+function show(h = 'hint') {
+
+    switch (h) {
+
+        case 'hint':
+            settings[0] = 'hint'
+            break;
+
+        case 'hide':
+            settings[0] = ''
+            break;
+    }
+
+    hintManager()
+    return settings
 }
