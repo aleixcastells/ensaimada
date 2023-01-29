@@ -1,42 +1,39 @@
-console.log('Version 2.0')
-var settings = ['ensaïmada', '', '', '', '', '', '', '']
+const SETTINGS = ['ensaïmada', '', '', '', '', '', '', '']
 
 // Buttons
-var btnArray = ['tamany_normal', 'tamany_grossa', 'ous_petits', 'ous_normals', 'ous_grossos', 'ous_sense', 'vegana_on', 'vegana_off', 'temp_calor', 'temp_fred', 'xp_baix', 'xp_mig', 'xp_alt', 'lloc_mallorca', 'lloc_peninsula', 'lloc_guiri', 'de_llisa', 'de_cabell', 'de_xocolata']
-console.log('Total buttons: ', btnArray.length)
+const BUTTON_ARRAY = ['tamany_normal', 'tamany_grossa', 'ous_petits', 'ous_normals', 'ous_grossos', 'ous_sense', 'vegana_on', 'vegana_off', 'temp_calor', 'temp_fred', 'xp_baix', 'xp_mig', 'xp_alt', 'lloc_mallorca', 'lloc_peninsula', 'lloc_guiri', 'de_llisa', 'de_cabell', 'de_xocolata']
 
 // Hints - - - - - - - - - - - - - - - - - - - 
-var total_hints = document.getElementsByClassName('hint').length;
-const hintList = []
-console.log('Total hints: ', total_hints)
+const HINT_LIST = []
+const TOTAL_HINTS = document.getElementsByClassName('hint').length;
+console.log('Total hints: ', TOTAL_HINTS)
 
-for (let i = 0; i < total_hints; i++) {
+for (let i = 0; i < TOTAL_HINTS; i++) {
     let hintName = 'hint_' + (i + 1)
-    let hintElement = document.getElementById(hintName)
-    hintList.push(hintElement)
+    HINT_LIST.push(document.getElementById(hintName))
 }
-for (let i = 0; i < hintList.length; i++) {
-    hintList[i].classList.add('hint-hidden')
+for (let i = 0; i < HINT_LIST.length; i++) {
+    HINT_LIST[i].classList.add('hint-hidden')
 }
 
 // Ingredients - - - - - - - - - - - - - - - - - - - 
-var ingrMult = [0.7, 1, 1.3] // Size multiplication factor. 1 = Normal (default)
-var ingrMultSelect = 1
-var baseAigua = 100
+const INGREDIENT_MULTIPLIER = [0.7, 1, 1.3]
+var ingredient_multiplier_selected = 1
+const BASE_AIGUA = 100
 
 const ingredients = {
     sucre: 150,
     ous: 2,
     farina: 500,
-    aigua: baseAigua,
+    aigua: BASE_AIGUA,
     llevadura: 15,
     temps_estiu: '\~ 10 h',
     temps_hivern: '\~ 18 h',
-    sucreQ: function () { return this.sucre * ingrMult[ingrMultSelect] + ' g' },
-    ousQ: function () { return Math.ceil(this.ous * ingrMult[ingrMultSelect]) + ' ous' },
-    farinaQ: function () { return this.farina * ingrMult[ingrMultSelect] + ' g' },
-    aiguaQ: function () { return this.aigua * ingrMult[ingrMultSelect] + ' ml' },
-    llevaduraQ: function () { return this.llevadura * ingrMult[ingrMultSelect] + ' g' },
+    sucreQ: function () { return this.sucre * INGREDIENT_MULTIPLIER[ingredient_multiplier_selected] + ' g' },
+    ousQ: function () { return Math.ceil(this.ous * INGREDIENT_MULTIPLIER[ingredient_multiplier_selected]) + ' ous' },
+    farinaQ: function () { return this.farina * INGREDIENT_MULTIPLIER[ingredient_multiplier_selected] + ' g' },
+    aiguaQ: function () { return this.aigua * INGREDIENT_MULTIPLIER[ingredient_multiplier_selected] + ' ml' },
+    llevaduraQ: function () { return this.llevadura * INGREDIENT_MULTIPLIER[ingredient_multiplier_selected] + ' g' },
 }
 
 function ingredientManager() {
@@ -48,7 +45,7 @@ function ingredientManager() {
     document.getElementById('eggs').innerHTML = ingredients.ousQ()
     document.getElementById('water').innerHTML = ingredients.aiguaQ()
 
-    settings[4] == 'temp_fred' ? document.getElementById("tempsPrep").innerHTML = ingredients.temps_hivern
+    SETTINGS[4] == 'temp_fred' ? document.getElementById("tempsPrep").innerHTML = ingredients.temps_hivern
         : document.getElementById('tempsPrep').innerHTML = ingredients.temps_estiu
 }
 
@@ -57,37 +54,37 @@ function btnClick(n, text) {
 
     console.clear()
 
-    settings[n] = text
+    SETTINGS[n] = text
     if (n == 6 && text == 'lloc_guiri') { window.open('https://www.amazon.es/ensaimada-mallorquina/s?k=ensaimada+mallorquina', '_blank') }
 
     updateUI(n, text)
-    console.log(settings)
+    console.log(SETTINGS)
 }
 
 function updateUI(n, text) {
     btnInteraction(n, text)
     hintManager()
-    btnManager()
+    btnColorManager()
     ingredientManager()
     btnInteraction(n, text)
 }
 
-function btnManager() {
-    for (let i = 0; i < btnArray.length; i++) {
-        let isActive = settings.indexOf(btnArray[i])
-        isActive == -1 ? flipBtn('btn-primary', 'btn-secondary', i)
+function btnColorManager() {
+    for (let i = 0; i < BUTTON_ARRAY.length; i++) {
+        let active_btn = SETTINGS.indexOf(BUTTON_ARRAY[i])
+        active_btn == -1 ? flipBtn('btn-primary', 'btn-secondary', i)
             : flipBtn('btn-secondary', 'btn-primary', i)
     }
 }
 
-function flipBtn(typeOld, typeNew, id) { document.getElementById(btnArray[id]).classList.replace(typeOld, typeNew) }
+function flipBtn(typeOld, typeNew, id) { document.getElementById(BUTTON_ARRAY[id]).classList.replace(typeOld, typeNew) }
 
 function btnInteraction(n, text) {
     switch (n) {
         // Mida ensaïmada
         case 1:
-            text == 'tamany_normal' ? ingrMultSelect = 1
-                : ingrMultSelect = 2
+            text == 'tamany_normal' ? ingredient_multiplier_selected = 1
+                : ingredient_multiplier_selected = 2
             break;
 
         // Ous: com són de grossos?
@@ -97,12 +94,12 @@ function btnInteraction(n, text) {
                 ingredients.aigua = 240
             }
             else {
-                settings[3] = 'vegana_off'
+                SETTINGS[3] = 'vegana_off'
                 flipBtn('btn-success', 'btn-secondary', 6)
                 ingredients.ous = 2;
-                text == 'ous_petits' ? ingredients.aigua = baseAigua + 10
-                    : text == 'ous_grossos' ? ingredients.aigua = baseAigua - 10
-                        : ingredients.aigua = baseAigua
+                text == 'ous_petits' ? ingredients.aigua = BASE_AIGUA + 10
+                    : text == 'ous_grossos' ? ingredients.aigua = BASE_AIGUA - 10
+                        : ingredients.aigua = BASE_AIGUA
             }
             break;
 
@@ -110,16 +107,16 @@ function btnInteraction(n, text) {
         case 3:
             if (text == 'vegana_on') {
                 flipBtn('btn-primary', 'btn-success', 6)
-                settings[2] = 'ous_sense'
+                SETTINGS[2] = 'ous_sense'
                 ingredients.ous = 0
                 ingredients.aigua = 240
 
             }
             if (text == 'vegana_off') {
                 flipBtn('btn-success', 'btn-secondary', 6)
-                settings[2] = 'ous_normals'
+                SETTINGS[2] = 'ous_normals'
                 ingredients.ous = 2;
-                ingredients.aigua = baseAigua
+                ingredients.aigua = BASE_AIGUA
             }
             break;
 
@@ -140,26 +137,26 @@ function btnInteraction(n, text) {
 
 function hintManager() {
     let getClassName = ''
-    for (let i = 0; i < hintList.length; i++) {
-        getClassName = hintList[i].className
+    for (let i = 0; i < HINT_LIST.length; i++) {
+        getClassName = HINT_LIST[i].className
         classNameArray = getClassName.split(' ')
-        let arrayCheck = settings.some(item => classNameArray.includes(item))
-        arrayCheck == true ? hintList[i].classList.replace('hint-hidden', 'hint-visible')
-            : hintList[i].classList.replace('hint-visible', 'hint-hidden')
+        let arrayCheck = SETTINGS.some(item => classNameArray.includes(item))
+        arrayCheck == true ? HINT_LIST[i].classList.replace('hint-hidden', 'hint-visible')
+            : HINT_LIST[i].classList.replace('hint-visible', 'hint-hidden')
     }
 }
 
 function llisaMillor() {
-    if (settings[5] != 'xp_alt' && settings[7] != 'de_llisa' && settings[7] != '') {
+    if (SETTINGS[5] != 'xp_alt' && SETTINGS[7] != 'de_llisa' && SETTINGS[7] != '') {
         alert("No intentis anar de llest i farcir-la de coses. Te la carregaràs. Menja-ho junt amb el que vulguis i ja està... Llisa és més bona!\n\n(Necessites marcar l'opció \'Veterano\' per a tenir aquesta opció diposnible)")
-        settings[7] = 'de_llisa'
+        SETTINGS[7] = 'de_llisa'
     }
 }
 
 // Console Functionality - - - - - - - - - - - - - - - - - - - 
 function show(h = 'hint') {
     console.clear()
-    h == 'hint' ? settings[0] = 'hint' : settings[0] = 'hide'
+    h == 'hint' ? SETTINGS[0] = 'hint' : SETTINGS[0] = 'hide'
     hintManager()
-    return settings[0]
+    return SETTINGS[0]
 }
