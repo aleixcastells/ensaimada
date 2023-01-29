@@ -1,37 +1,16 @@
 console.log('Version 2.0')
 var settings = ['ensaïmada', '', '', '', '', '', '', '']
-var total_hints = document.getElementsByClassName('hint').length;
-console.log('Total hints: ', total_hints)
 
 // Buttons
 var btnArray = ['tamany_normal', 'tamany_grossa', 'ous_petits', 'ous_normals', 'ous_grossos', 'ous_sense', 'vegana_on', 'vegana_off', 'temp_calor', 'temp_fred', 'xp_baix', 'xp_mig', 'xp_alt', 'lloc_mallorca', 'lloc_peninsula', 'lloc_guiri', 'de_llisa', 'de_cabell', 'de_xocolata']
-
 console.log('Total buttons: ', btnArray.length)
-var tamany_normal = document.getElementById('tamany_normal')
-var tamany_grossa = document.getElementById('tamany_grossa')
-var ous_petits = document.getElementById('ous_petits')
-var ous_normals = document.getElementById('ous_normals')
-var ous_grossos = document.getElementById('ous_grossos')
-var ous_sense = document.getElementById('ous_sense')
-var vegana_on = document.getElementById('vegana_on')
-var vegana_off = document.getElementById('vegana_off')
-var temp_calor = document.getElementById('temp_calor')
-var temp_fred = document.getElementById('temp_fred')
-var xp_baix = document.getElementById('xp_baix')
-var xp_mig = document.getElementById('xp_mig')
-var xp_alt = document.getElementById('xp_alt')
-var lloc_mallorca = document.getElementById('lloc_mallorca')
-var lloc_peninsula = document.getElementById('lloc_peninsula')
-var lloc_guiri = document.getElementById('lloc_guiri')
-var de_llisa = document.getElementById('de_llisa')
-var de_cabell = document.getElementById('de_cabell')
-var de_xocolata = document.getElementById('de_xocolata')
 
 // Hints - - - - - - - - - - - - - - - - - - - 
+var total_hints = document.getElementsByClassName('hint').length;
 const hintList = []
+console.log('Total hints: ', total_hints)
 
 for (let i = 0; i < total_hints; i++) {
-
     let hintName = 'hint_' + (i + 1)
     let hintElement = document.getElementById(hintName)
     hintList.push(hintElement)
@@ -83,9 +62,7 @@ function btnClick(n, text) {
 
 function btnAction(n, text) {
     settings[n] = text
-    if (n == 6 && text == 'lloc_guiri') {
-        window.open('https://www.amazon.es/ensaimada-mallorquina/s?k=ensaimada+mallorquina', '_blank')
-    }
+    if (n == 6 && text == 'lloc_guiri') { window.open('https://www.amazon.es/ensaimada-mallorquina/s?k=ensaimada+mallorquina', '_blank') }
 }
 
 function updateUI(n, text) {
@@ -98,32 +75,24 @@ function updateUI(n, text) {
 
 function btnManager() {
     for (let i = 0; i < btnArray.length; i++) {
-
         let isActive = settings.indexOf(btnArray[i])
         isActive == -1 ? flipBtn('btn-primary', 'btn-secondary', i)
             : flipBtn('btn-secondary', 'btn-primary', i)
     }
 }
 
-function flipBtn(typeOld, typeNew, id) {
-    document.getElementById(btnArray[id]).classList.replace(typeOld, typeNew)
-}
+function flipBtn(typeOld, typeNew, id) { document.getElementById(btnArray[id]).classList.replace(typeOld, typeNew) }
 
 function btnInteraction(n, text) {
     switch (n) {
         // Mida ensaïmada
         case 1:
-            if (text == 'tamany_normal') {
-                ingrMultSelect = 1
-            }
-            if (text == 'tamany_grossa') {
-                ingrMultSelect = 2
-            }
+            text == 'tamany_normal' ? ingrMultSelect = 1
+                : ingrMultSelect = 2
             break;
 
         // Ous: com són de grossos?
         case 2:
-
             if (text == 'ous_sense') {
                 ingredients.ous = 0;
                 ingredients.aigua = 240
@@ -171,7 +140,6 @@ function btnInteraction(n, text) {
 }
 
 function hintManager() {
-
     let getClassName = ''
     for (let i = 0; i < hintList.length; i++) {
         getClassName = hintList[i].className
@@ -183,16 +151,16 @@ function hintManager() {
 }
 
 function llisaMillor() {
-
     if (settings[5] != 'xp_alt' && settings[7] != 'de_llisa' && settings[7] != '') {
         alert("No intentis anar de llest i farcir-la de coses. Te la carregaràs. Menja-ho junt amb el que vulguis i ja està... Llisa és més bona!\n\n(Necessites marcar l'opció \'Veterano\' per a tenir aquesta opció diposnible)")
         settings[7] = 'de_llisa'
     }
 }
 
+// Console Functionality - - - - - - - - - - - - - - - - - - - 
 function show(h = 'hint') {
-
-    h == 'hint' ? settings[0] = 'hint' : settings[0] = 'ensaïmada'
+    console.clear()
+    h == 'hint' ? settings[0] = 'hint' : settings[0] = 'hide'
     hintManager()
-    return settings
+    return settings[0]
 }
