@@ -54,15 +54,14 @@ function ingredientManager() {
 
 // UI Functionality - - - - - - - - - - - - - - - - - - - 
 function btnClick(n, text) {
-    console.clear()
-    btnAction(n, text)
-    updateUI(n, text)
-    console.log(settings)
-}
 
-function btnAction(n, text) {
+    console.clear()
+
     settings[n] = text
     if (n == 6 && text == 'lloc_guiri') { window.open('https://www.amazon.es/ensaimada-mallorquina/s?k=ensaimada+mallorquina', '_blank') }
+
+    updateUI(n, text)
+    console.log(settings)
 }
 
 function updateUI(n, text) {
