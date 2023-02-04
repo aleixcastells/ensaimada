@@ -22,7 +22,7 @@ var ingredient_multiplier_selected = 1
 const BASE_AIGUA = 100
 
 const ingredients = {
-    sucre: 150,
+    sucre: 130,
     ous: 2,
     farina: 500,
     aigua: BASE_AIGUA,
